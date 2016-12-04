@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Source Demo</title>
+
+    <script>
+        var se = new EventSource('http://localhost:8080/stream');
+        var wr = document.getElementById("wrapper");
+
+        se.onmessage = function (e) {
+            console.log(e);
+
+            wr.innerHTML = e.data;
+        }
+    </script>
+</head>
+<body>
+
+<div id="wrapper"></div>
+</body>
+</html>
